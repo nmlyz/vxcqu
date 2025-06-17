@@ -1,43 +1,48 @@
-/* 全体 */
+/* ベース */
 body {
-  font-family: sans-serif;
+  font-family: "Helvetica", sans-serif;
+  background: #fff0f5;
+  color: #444;
   padding: 20px;
-  background: #f9f9f9;
+  max-width: 700px;
+  margin: auto;
 }
 
-/* タイトル下の選択ボタン */
+/* タイトル */
+h2 {
+  color: #d63384;
+  border-bottom: 2px solid #f8cde3;
+  padding-bottom: 5px;
+}
+
+/* ラジオボタン（選択ボタン） */
 #typeSelector {
   margin-bottom: 20px;
 }
 
 .select-btn {
   display: inline-block;
-  border: 1px solid #aaa;
+  border: 2px solid #f8a9c7;
+  background-color: #ffe3ed;
+  color: #d63384;
   padding: 10px 20px;
   margin-right: 10px;
-  border-radius: 5px;
+  border-radius: 30px;
+  font-weight: bold;
   cursor: pointer;
   user-select: none;
-  background-color: white;
-  transition: background-color 0.2s;
 }
 
-.select-btn:hover {
-  background-color: #eee;
+.select-btn.selected {
+  background-color: #f8a9c7;
+  color: white;
 }
 
 .select-btn input[type="radio"] {
   display: none;
 }
 
-.select-btn.selected {
-  background-color: #f90;
-  color: white;
-  font-weight: bold;
-  border-color: #f90;
-}
-
-/* 入力フォーム */
+/* フォーム */
 .form-area {
   display: flex;
   flex-direction: column;
@@ -46,49 +51,58 @@ body {
 }
 
 .input-box {
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  background: #fff;
+  border: 2px solid #f8cde3;
+  border-radius: 10px;
   padding: 10px;
 }
 
 .input-box label {
   font-weight: bold;
+  color: #d63384;
   display: block;
   margin-bottom: 5px;
 }
 
-.input-box input {
+.input-box input,
+.input-box select {
   width: 100%;
-  padding: 6px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
-/* テキストエリアとボタン */
+/* プレビュー */
 textarea {
   width: 100%;
   height: 200px;
   padding: 10px;
+  border: 2px solid #f8cde3;
+  border-radius: 10px;
+  background: #fff;
   font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background: white;
   margin-top: 10px;
+  color: #333;
+}
+
+/* アクション */
+.action-area {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
 }
 
 button {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #1da1f2;
+  background-color: #d63384;
   color: white;
+  padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 30px;
+  font-size: 14px;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 button:hover {
-  background-color: #0d8ddb;
+  background-color: #c2186a;
 }
