@@ -106,3 +106,20 @@ button {
 button:hover {
   background-color: #c2186a;
 }
+
+/* ラジオボタンのまとまり */
+.radio-wrap {
+  margin-bottom: 10px;
+}
+
+.radio-wrap label {
+  margin-right: 15px;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+/* 「あり」の下に表示するセレクトボックス */
+.early-options {
+  margin-top: 5px;
+}
