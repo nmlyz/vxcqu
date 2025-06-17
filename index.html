@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>イラスト依頼テンプレ作成</title>
+  <style>
+    /* 必要最低限のスタイル */
+    body { font-family: sans-serif; padding: 20px; }
+    label { display: block; margin-top: 10px; }
+    .hidden { display: none; }
+    textarea { width: 100%; height: 200px; }
+    button { margin-top: 20px; padding: 10px 20px; }
+  </style>
+</head>
+<body>
+
+<h2>イラスト依頼テンプレ作成</h2>
+
+<!-- ラジオボタンで依頼種別を選択 -->
+<label>
+  <input type="radio" name="type" value="nyanzu" checked> にゃんず量産🐈‍⬛
+</label>
+<label>
+  <input type="radio" name="type" value="ganbare"> がんばれ！量産
+</label>
+
+<!-- 入力フォーム（動的に切り替える） -->
+<form id="formArea"></form>
+
+<!-- テンプレ生成結果 -->
+<h3>テンプレプレビュー</h3>
+<textarea id="templatePreview" readonly></textarea>
+
+<!-- Twitter DMリンクボタン -->
+<button id="sendButton">Twitterで送信</button>
+
+<script>
+  const formArea = document.getElementById('formArea');
+  const preview = document.getElementById('templatePreview');
+  const sendButton = document.getElementById('sendButton');
+
+  // テンプレ定義
+  const templates = {
+    nyanzu: {
+      title: '【 にゃんず量産🐈‍⬛ 】',
+      fields: [
+        '早期', '左右', '性別', '髪型', '髪色', '目色',
+        '服色', '小物', '猫耳（あり or なし）'
+      ],
+      footer: '※猫色固定'
+    },
+    ganbare: {
+      title: '【 がんばれ！量産 】',
+      fields: [
+        '早期', '左右', '性別', '髪型', '髪色', '目色',
+        '体操服色', 'ゼッケンの文字', '小物'
+      ],
+      footer: '※体操服とハチマキの色は同色になります'
+    }
+  };
+
+  // 現在の選択
+  let currentType = 'nyanzu';
+
+  // フォームを再描画
+  function renderForm() {
+    const template = templates[currentType];
+    formArea.innerHTML = '';
+    template.fields.forEach(field => {
+      const label = document.createElement('label');
+      label.innerText = `${field} ╎ `;
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.name = field;
+      label.appendChild(input);
+      formArea.appendChild(label);
+    });
+
+    updatePreview(); // フォーム更新後にプレビュー初期化
+  }
+
+  // 入力内容からテンプレートを生成
+  function updatePreview() {
+    const template = templates[currentType];
+    const inputs = formArea.querySelectorAll('input');
+    let result = `${template.title}\n`;
+    inputs.forEach(input => {
+      result += `${input.name} ╎ ${input.value}\n`;
+    });
+    result += `\n${template.footer}`;
+    preview.value = result;
+  }
+
+  // ラジオボタンの切り替え
+  document.querySelectorAll('input[name="type"]').forEach(radio => {
+    radio.addEventListener('change', (e) => {
+      currentType = e.target.value;
+      renderForm();
+    });
+  });
+
+  // 入力が変わったらプレビュー更新
+  formArea.addEventListener('input', updatePreview);
+
+  // Twitter DM リンク作成（@vxcqu_ 宛にテンプレを送る）
+  sendButton.addEventListener('click', () => {
+    const message = encodeURIComponent(preview.value);
+    const twitterUrl = `https://twitter.com/messages/compose?recipient_id=1518912202732193793&text=${message}`;
+    window.open(twitterUrl, '_blank');
+  });
+
+  // 初期描画
+  renderForm();
+</script>
+
+</body>
+</html>
