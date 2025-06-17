@@ -1,0 +1,94 @@
+/* 全体 */
+body {
+  font-family: sans-serif;
+  padding: 20px;
+  background: #f9f9f9;
+}
+
+/* タイトル下の選択ボタン */
+#typeSelector {
+  margin-bottom: 20px;
+}
+
+.select-btn {
+  display: inline-block;
+  border: 1px solid #aaa;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+  background-color: white;
+  transition: background-color 0.2s;
+}
+
+.select-btn:hover {
+  background-color: #eee;
+}
+
+.select-btn input[type="radio"] {
+  display: none;
+}
+
+.select-btn.selected {
+  background-color: #f90;
+  color: white;
+  font-weight: bold;
+  border-color: #f90;
+}
+
+/* 入力フォーム */
+.form-area {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.input-box {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.input-box label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 6px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* テキストエリアとボタン */
+textarea {
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: white;
+  margin-top: 10px;
+}
+
+button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #1da1f2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0d8ddb;
+}
