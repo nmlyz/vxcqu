@@ -1,0 +1,35 @@
+body {
+    font-family: sans-serif;
+    padding: 20px;
+    background: #fff0f5;
+  }
+  
+  label,
+  select,
+  input {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .output {
+    margin-top: 20px;
+    padding: 10px;
+    background: #ffe;
+    border-radius: 8px;
+    white-space: pre-wrap;
+  }
+  
+  button {
+    margin-top: 10px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    background: #f28cb1;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #e07599;
+  }
+  
