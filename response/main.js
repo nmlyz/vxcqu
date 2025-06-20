@@ -89,7 +89,7 @@ function generateMessage() {
     deadline = addMonthAndHalf(orderDate);
     confirmMessage = `かしこまりました！\n📍〜1ヶ月半(${deadline}まで)\n返信、反応不要`;
   } else {
-    paymentMessage = `かしこまりました！\n¥${basePrice} + 早期¥${speedPrice} でお支払い\n¥${total}になります🌟\nお手際の際3日以内にリンクお願いします(⋆ᴗ͈ˬᴗ͈⋆)`;
+    paymentMessage = `かしこまりました！\n¥${basePrice}+早期¥${speedPrice} でお支払い\n¥${total}になります🌟\nお手際の際3日以内にリンクお願いします(⋆ᴗ͈ˬᴗ͈⋆)`;
     
     if (speed === '24h') {
       deadline = addDays(orderDate, 1) + ' 23:59まで';
