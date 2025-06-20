@@ -25,10 +25,21 @@
     <input type="date" id="orderDate" />
   </label>
 
-  <button id="generateBtn" onclick="generateMessage()" disabled>文章を生成</button>
+  <button id="generateBtn" onclick="generateMessage()" disabled>文章を生成💌</button>
 
-  <div class="output" id="output"></div>
-  <button onclick="copyText()">コピー</button>
+  <div class="output-container">
+    <div class="output-box">
+      <h2>お支払い文</h2>
+      <pre id="outputPayment" class="output"></pre>
+      <button onclick="copyText('outputPayment')">コピー📋</button>
+    </div>
+
+    <div class="output-box">
+      <h2>確認文</h2>
+      <pre id="outputConfirm" class="output"></pre>
+      <button onclick="copyText('outputConfirm')">コピー📋</button>
+    </div>
+  </div>
 
   <script src="main.js"></script>
 </body>

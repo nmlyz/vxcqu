@@ -75,29 +75,31 @@ function generateMessage() {
   const speedPrice = earlyPrices[earlyType][speed];
   const total = basePrice + speedPrice;
 
-  let message = `かしこまりました！\n(${basePrice})+早期(${speedPrice})でお支払い \n¥${total}になります\u2729 \nお手際の際3日以内にリンクお願いします(\u22c6\u1d17\u0361\u204e\u1d17\u22c6)`;
+  const paymentMessage = `かしこまりました！\n(${basePrice})+早期(${speedPrice})でお支払い \n¥${total}になります\u2729 \nお手際の際3日以内にリンクお願いします(\u22c6\u1d17\u0361\u204e\u1d17\u22c6)`;
 
   const orderDate = new Date(dateStr);
+  let confirmMessage = '';
   let deadline = '';
 
   if (speed === '24h') {
     deadline = addDays(orderDate, 1) + ' 23:59まで';
-    message += `\n\n確認できました！\n📍〜24h  (${deadline})\n返信、反応不要`;
+    confirmMessage = `確認できました！\n📍〜24h  (${deadline})\n返信、反応不要`;
   } else if (speed === '3日') {
     deadline = addDays(orderDate, 3);
-    message += `\n\n確認できました！\n📍〜3日  (${deadline}まで)\n返信、反応不要`;
+    confirmMessage = `確認できました！\n📍〜3日  (${deadline}まで)\n返信、反応不要`;
   } else if (speed === '7日') {
     deadline = addDays(orderDate, 7);
-    message += `\n\n確認できました！\n📍〜7日  (${deadline}まで)\n返信、反応不要`;
+    confirmMessage = `確認できました！\n📍〜7日  (${deadline}まで)\n返信、反応不要`;
   } else {
     deadline = addMonthAndHalf(orderDate);
-    message += `\n\nかしこまりました！\n📍〜1ヶ月半(${deadline}まで)\n返信、反応不要`;
+    confirmMessage = `かしこまりました！\n📍〜1ヶ月半(${deadline}まで)\n返信、反応不要`;
   }
 
-  document.getElementById('output').textContent = message;
+  document.getElementById('outputPayment').textContent = paymentMessage;
+  document.getElementById('outputConfirm').textContent = confirmMessage;
 }
 
-function copyText() {
-  const text = document.getElementById('output').textContent;
+function copyText(id) {
+  const text = document.getElementById(id).textContent;
   navigator.clipboard.writeText(text).then(() => alert('コピーしました！'));
 }
