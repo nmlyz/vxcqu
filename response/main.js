@@ -151,7 +151,7 @@ function generateMessage() {
       // 翌日23:59まで → 日付は翌日、時刻は文字列で追加
       const nextDay = new Date(orderDate);
       nextDay.setDate(nextDay.getDate() + 1);
-      deadline = formatDate(nextDay) + ' 23:59まで';
+      deadline = formatDate(nextDay) + 'まで';
       confirmMessage = `📍〜24h (${deadline})\n返信、反応不要`;
     } else if (speed === '3日') {
       deadline = addDays(orderDate, 3) + 'まで';
