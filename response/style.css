@@ -92,5 +92,56 @@ button:hover {
 
 /* progressbar(人数) */
 #people_num {
-  widrh: 480px;
+  -webkit-appearance: none; /* Safari/Chrome */
+  appearance: none;
+  width: 480px;
+  height: 12px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #ffb6c1, #ff69b4);
+  outline: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* スライダーのつまみ部分 (Chrome, Safari, Edge) */
+#people_num::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #ff69b4;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+#people_num::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  background: #ffe6f0;
+}
+
+/* Firefox用 */
+#people_num::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #ff69b4;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+#people_num::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  background: #ffe6f0;
+}
+
+/* Firefoxのバー */
+#people_num::-moz-range-track {
+  height: 12px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #ffb6c1, #ff69b4);
 }
