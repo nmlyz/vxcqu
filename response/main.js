@@ -17,6 +17,8 @@ function toggleProgressBar() {
   const progressContainer = document.querySelector('.progress-container');
   const speedSelect = document.getElementById('speed');
   const noneOption = speedSelect.querySelector('option[value="なし"]');
+  const peopleNumSlider = document.getElementById('people_num');
+  const peopleValue = document.getElementById('peopleValue');
   
   if (selectedItem === 'ちび簡易依頼') {
     progressContainer.style.display = 'block';
@@ -25,9 +27,22 @@ function toggleProgressBar() {
       noneOption.remove();
     }
     speedSelect.value = '24h';
+  } else if (selectedItem === 'ほっぺつん量産') {
+    progressContainer.style.display = 'none';
+    // people_numを1に設定
+    peopleNumSlider.value = 1;
+    peopleValue.textContent = '1';
+    // 「なし」オプションを追加（まだない場合）
+    if (!speedSelect.querySelector('option[value="なし"]')) {
+      const newNoneOption = document.createElement('option');
+      newNoneOption.value = 'なし';
+      newNoneOption.textContent = 'なし';
+      speedSelect.insertBefore(newNoneOption, speedSelect.firstChild);
+    }
+    speedSelect.value = 'なし';
   } else {
     // その他の項目は「なし」オプションを追加（まだない場合）
-    progressContainer.style.display = selectedItem === 'ほっぺつん量産' ? 'none' : 'block';
+    progressContainer.style.display = 'block';
     if (!speedSelect.querySelector('option[value="なし"]')) {
       const newNoneOption = document.createElement('option');
       newNoneOption.value = 'なし';
