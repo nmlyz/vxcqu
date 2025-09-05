@@ -89,3 +89,8 @@ button:hover {
   margin-bottom: 10px;
   user-select: text;
 }
+
+/* progressbar(人数) */
+#people_num {
+  widrh: 480px;
+}

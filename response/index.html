@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
@@ -8,24 +9,32 @@
 <body>
   <h1>￤ジェネレーター￤</h1>
 
-  <label>依頼種類
-    <select id="item"></select>
-  </label>
+<label>依頼種類
+<select id="item"></select>
+</label>
 
-  <label>早期オプション
-    <select id="speed">
-      <option value="なし">なし</option>
-      <option value="24h">24h</option>
-      <option value="3日">3日</option>
-      <option value="7日">7日</option>
-    </select>
-  </label>
+<label>早期オプション
+<select id="speed">
+<option value="なし">なし</option>
+<option value="24h">24h</option>
+<option value="3日">3日</option>
+<option value="7日">7日</option>
+</select>
+</label>
 
-  <label>依頼日
-    <input type="date" id="orderDate" />
-  </label>
+  <!-- プログレスバー部分 -->
 
-  <button id="generateBtn" onclick="generateMessage()" disabled>文章を生成💌</button>
+  <div class="progress-container">
+    <label for="people_num">依頼人数</label>
+    <input type="range" id="people_num" min="1" max="14" value="1" oninput="peopleValue.textContent=this.value">
+    <span id="peopleValue">1</span>人
+  </div>
+
+<label>依頼日
+<input type="date" id="orderDate" />
+</label>
+
+<button id="generateBtn" onclick="generateMessage()" disabled>文章を生成💌</button>
 
   <div class="output-container">
     <div class="output-box">
@@ -34,13 +43,17 @@
       <button onclick="copyText('outputPayment')">コピー📋</button>
     </div>
 
-    <div class="output-box">
-      <h2>確認文</h2>
-      <pre id="outputConfirm" class="output"></pre>
-      <button onclick="copyText('outputConfirm')">コピー📋</button>
-    </div>
+```
+<div class="output-box">
+  <h2>確認文</h2>
+  <pre id="outputConfirm" class="output"></pre>
+  <button onclick="copyText('outputConfirm')">コピー📋</button>
+</div>
+```
+
   </div>
 
   <script src="main.js"></script>
+
 </body>
 </html>
